@@ -1,0 +1,72 @@
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<h2>My Booking</h2>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">ERS</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarColor01" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Item">Item</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MyBooking">My Booking</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+  <% include ./partials/messages %>
+<table class="table table-hover"  id="myTable">
+    <thead>
+      <tr class="table-dark">
+        <td>Number</td>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Location</td>
+        <td>Booking Date</td>
+        <td>Returnning Date</td>
+        <td>Action</td>
+
+      </tr>
+    </thead>
+    <tbody>
+      
+        <% for(var i = 0; i < Item.length; i++) { %>  
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= Item[i].name %></td>
+            <td><%= Item[i].category %></td>
+            <td><%= Item[i].location %></td>
+            <td><%= Item[i].bookdate %></td>
+            <td><%= Item[i].returndate %></td>
+            <td> 
+              <a href="/UpdateBooking/<%= Item[i]._id%>" class="btn btn-outline-info">Edit</a>
+              <a href="/CancelBooking/<%= Item[i]._id%>" class="btn btn-outline-danger">Cancel Booking</a>
+              
+          </td>
+        </tr>
+        <% } %>
+   
+    
+  </tbody>
+</table>
+
+ <script>  $(document).ready( function () {
+  $('#myTable').DataTable();
+} );</script>
+
+  
+ 

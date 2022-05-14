@@ -1,0 +1,92 @@
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/admin/adminItem"><i class="fas fa-angle-double-left"></i> All Items</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">More Information</h2>
+            <p class="text-primary">Use the below out to know more details about an Item </p>
+        </div>
+
+ <form action="/UpdateItem/<%= Item._id %>" method="POST" id="UpdateItem">
+    <div class="new_item">
+
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>Name</strong></label><br>
+            <input type="text" name="name" value="<%= Item.name %>" placeholder="<%= Item.name %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="category" class="text-muted"><strong>Category</strong></label><br>
+            <input type="text" name="category" value="<%= Item.category %>" placeholder="<%= Item.category %>" disabled="disabled" size="55">
+        </div>
+
+     
+    
+          
+        <div class="form-group">
+            <label for="location" class="text-muted"><strong>location</strong></label><br>
+            <input type="text" name="location" value="<%= Item.location %>" placeholder="<%= Item.location %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="avaliablity" class="text-muted"><strong>avaliablity</strong></label><br>
+            <input type="text" name="avaliablity" value="<%= Item.avaliablity %>" placeholder="<%= Item.avaliablity %>" disabled="disabled" size="55">
+        </div>
+
+        
+
+        <div class="form-group">
+            <label for="taker" class="text-muted"><strong>taker</strong></label><br>
+            <input type="text" name="taker" value="<%= Item.taker %>" placeholder="<%= Item.taker %>" disabled="disabled" size="55">
+        </div>
+
+
+        <div class="form-group">
+            <label for="bookdate" class="text-muted"><strong>Booking Date</strong></label><br>
+            <input type="text" name="bookdate" value="<%= Item.bookdate %>" placeholder="<%= Item.bookdate %>" disabled="disabled"  size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="returndate" class="text-muted"><strong>Return Date</strong></label><br>
+            <input type="text" name="returndate" value="<%= Item.returndate %>" placeholder="<%= Item.returndate %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="avaliablity" class="text-muted"><strong>avaliablity</strong></label><br>
+            <input type="text" name="avaliablity" value="<%= Item.avaliablity %>" placeholder="<%= Item.avaliablity %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="destination" class="text-muted"><strong>destination</strong></label><br>
+            <input type="text" name="destination" value="<%= Item.destination %>" placeholder="<%= Item.destination %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="delivery" class="text-muted"><strong>delivery</strong></label><br>
+            <input type="text" name="delivery" value="<%= Item.avaliablity %>" placeholder="<%= Item.delivery %>" disabled="disabled" size="55">
+        </div>
+
+        <div class="form-group">
+            <label for="status" class="text-muted"><strong>Status</strong></label><br>
+            <input type="text" name="status" value="<%= Item.status %>" placeholder="<%= Item.status %>" disabled="disabled" size="55">
+        </div>
+
+
+
+
+      
+       
+      
+
+
+    
+       
+
+    </div>
+</form>
+       
+    </div>
+</main>

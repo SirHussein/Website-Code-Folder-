@@ -1,0 +1,82 @@
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/MyBooking"><i class="fas fa-angle-double-left"></i> My Booking</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Cancel Booking</h2>
+            <p class="text-primary"></p>
+        </div>
+
+ <form action="/CancelBooking/<%= Item._id %>" method="POST" id="CancelBooking">
+    <div class="new_item">
+
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>Name</strong></label><br>
+            <input type="text" name="name" value="<%= Item.name %>" placeholder="<%= Item.name %>" disabled="disabled" >
+        </div>
+
+     
+        <div class="form-group">
+            <label for="category"><strong>Select Category</strong></label>
+            <select class="form-control"
+             id="category"
+             name="category"
+             value="" disabled="disabled" >
+    
+            <option selected=""><%= Item.category %></option>
+              <option>Electronic</option>
+              <option>Household Appliance</option>
+              <option>Garden</option>
+              <option>Kitchen Appliance</option>
+              <option>Tools</option>
+              <option>Others</option>
+            </select>
+          </div>
+          
+        <div class="form-group">
+            <label for="location" class="text-muted"><strong>location</strong></label><br>
+            <input type="text" name="location" value="<%= Item.location %>" placeholder="<%= Item.location %>" disabled="disabled" >
+        </div>
+        
+        <div class="form-group">
+            <label for="bookdate" class="text-muted"><strong>Booking Time</strong></label><br>
+        <input class="from-control" type="text" value="<%= Item.bookdate %>" placeholder="<%= Item.bookdate %>" id="bookdate" name="bookdate" size="60" disabled="disabled" >
+        </div>
+    
+    
+        
+        <div class="form-group">
+            <label for="returndate" class="text-muted"><strong>Returnning Time</strong></label><br>
+        <input class="from-control" type="text" value="<%= Item.returndate %>" placeholder="<%= Item.returndate %>" id="returndate" name="returndate" size="60" disabled="disabled"  >
+        </div>
+
+        <div class="form-group">
+            <label for="taker" class="text-muted" value=""></label>
+            <input type="text" name="taker" value="" placeholder=" " id="taker" hidden>
+        </div>
+
+        <div class="form-group">
+            <label for="avaliablity" class="text-muted" value="<%= Item.avaliablity %>"></label>
+            <input  type="avaliablity" name="avaliablity" value="true" placeholder=" <%= Item.avaliablity %>" id="avaliablity" hidden>
+        </div>
+
+        <div class="form-group">
+            <label for="bookdate" class="text-muted"><strong></strong></label>
+        <input type="text" class="form-check-input" name="delivery" id="no" value="no" checked="" hidden>
+        </div>
+
+
+
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Cancel Booking</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>

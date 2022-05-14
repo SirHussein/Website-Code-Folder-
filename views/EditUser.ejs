@@ -1,0 +1,42 @@
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/admin/UserMangment"><i class="fas fa-angle-double-left"></i> All Items</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Edit User</h2>
+            <p class="text-primary">Use the below form to Update an Item information</p>
+        </div>
+
+ <form action="/UserEdit/<%= User._id %>" method="POST" id="UserEdit">
+    <div class="new_item">
+
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>Name</strong></label>
+            <input type="text" name="name" value="<%= User.name %>" placeholder="<%= User.name %>">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="text-muted"><strong>Email</strong></label>
+            <input type="email" name="email" value="<%= User.email %>" placeholder="<%= User.email %>">
+        </div>
+     
+       
+          
+        <div class="form-group">
+            <label for="date" class="text-muted"><strong>Date of Register</strong></label>
+            <input type="text" name="date" value="<%= User.date %>" placeholder="<%= User.date %>" size="60">
+        </div>
+
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>

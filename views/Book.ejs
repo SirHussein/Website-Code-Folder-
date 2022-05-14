@@ -1,0 +1,174 @@
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+   
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/Item"><i class="fas fa-angle-double-left"></i> All Items</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Book Item</h2>
+            <p class="text-primary">Use the below form to Book an Item </p>
+        </div>
+
+      
+        
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>Name</strong></label><br>
+            <input type="text" name="name" value="" placeholder="<%= Item.name %>" disabled="disabled" size="30">
+        </div>
+
+        <div class="form-group">
+            <label for="category" class="text-muted"><strong>Category</strong></label><br>
+            <input type="text" name="category" value="" placeholder="<%= Item.category %>" disabled="disabled" size="30" >
+        </div>
+       
+    
+        <div class="form-group">
+            <label for="location" ><strong>Location</strong></label><br>
+            <input type="text" name="location" value="" placeholder="<%= Item.location %>" disabled="disabled" size="30" >
+        </div>
+
+        
+
+ <form action="/Book/<%= Item._id %>" method="POST" id="Book">
+    <div class="new_item">
+
+        
+        <div class="form-group">
+            <label for="bookdate" class="text-muted"><strong>Booking Time</strong></label><br>
+        <input class="from-control"  type="date" placeholder="Select DateTime" id="bookdate" name="bookdate" required >
+        </div>
+    
+    <br>
+        
+        <div class="form-group">
+            <label for="returndate" class="text-muted"><strong>Returnning Time</strong></label><br>
+        <input disabled class="from-control" type="date" placeholder="Select DateTime" id="returndate" name="returndate" required >
+        </div>
+        <br>
+    
+        <fieldset class="form-group">
+            <legend class="mt-4">Delivery</legend>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="delivery" id="no" value="no" checked="">
+                No
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="delivery" id="yes" value="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-check disabled">
+            
+            </div>
+          </fieldset>
+        <br>
+
+
+        <div class="form-group">
+            <label for="destnation" ><strong>Destnation</strong></label><br>
+            <input disabled type="text" name="destnation" value="" placeholder="Enter Destnation"  size="30" id="destnation" >
+        </div>
+        <br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Book</button>
+        </div>
+
+        <div class="form-group">
+            <label for="taker" class="text-muted" value="<%= user.name %>"></label>
+            <input  type="text" name="taker" value="<%= user.name %>" placeholder=" <%= user.name %>" id="taker" hidden>
+        </div>
+        <div class="form-group">
+            <label for="avaliablity" class="text-muted" value="<%= Item.avaliablity %>"></label>
+            <input  type="avaliablity" name="avaliablity" value="false" placeholder=" <%= Item.avaliablity %>" id="avaliablity" hidden>
+        </div>
+
+        <form action="/UpdateUser1/<%= user._id %>" method="POST" id="UpdateUser">
+            <label for="access" class="text-muted" value="<%= user.access %>"></label>
+            <input  type="access" name="access" value="true" placeholder=" <%= user.access %>" id="access" hidden>
+        </form>
+
+
+    </div>
+</form>
+
+
+       
+    </div>
+    <script>
+        const input = document.getElementById("bookdate")
+        const work = document.getElementById("returndate")
+
+        input.addEventListener("change",(e) => {
+            //console.log(e.currentTarget.value)
+            const value = e.currentTarget.value
+            document.getElementById("returndate").setAttribute('min', value)
+            if (value ===""){
+                work.disabled = true
+            }
+            else{
+                work.disabled = false
+            }
+            
+        })
+        console.log('<%= Item.bookdate %>')
+        var date = new Date()
+        var tdate = date.getDate()
+        var mdate = date.getMonth()+1
+        var ydate =date.getFullYear()
+        if(tdate < 10){
+            tdate = '0'+ tdate
+        }
+        if(mdate < 10){
+            mdate = '0'+ mdate
+        }max = 0
+        var minDate= ydate+"-" + mdate +"-"+ tdate
+        document.getElementById("bookdate").setAttribute('min', minDate)
+       // document.getElementById("returndate").setAttribute('min', minDate)
+        let fDate = document.querySelector('#bookdate');
+        let tDate = document.querySelector('#returndate');
+        
+        fDate.addEventListener('change', function() {
+        var max = new Date(fDate.value);
+         max.setDate(max.getDate()+20 );
+         tDate.max = max.toISOString().split('T')[0];
+         
+                        });
+        const no = document.getElementById("no")
+        const yes = document.getElementById("yes") 
+        const dis = document.getElementById("destnation") 
+        
+        yes.addEventListener("change",(e) => {
+            const value = e.currentTarget.value
+            if (value ==="yes"){
+                dis.disabled = false
+            }
+            else{
+                dis.disabled = true
+                dis.value =''
+            }
+            
+        })
+
+        no.addEventListener("change",(e) => {
+            const value = e.currentTarget.value
+            if (value ==="no"){
+                dis.disabled = true
+                dis.value =''
+            }
+            else{
+                dis.disabled = false
+            }
+            
+        })
+                        
+        
+    </script>
+</main>
+
+

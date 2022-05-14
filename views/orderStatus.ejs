@@ -1,0 +1,64 @@
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/delivery/orders"><i class="fas fa-angle-double-left"></i> All Orders</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Item Status</h2>
+            <p class="text-primary">Use the below form to Update an Item information</p>
+        </div>
+
+ <form action="/delivery/orderStatus/<%= Item._id %>" method="POST" id="orderStatus">
+    <div class="new_item">
+
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>Item Name </strong></label><br>
+            <input type="text" name="name" value="<%= Item.name %>" placeholder="<%= Item.name %>" disabled="disabled">
+        </div>
+        
+        <div class="form-group">
+            <label for="category" class="text-muted"><strong>Category </strong></label><br>
+            <input type="text" name="category" value="<%= Item.category %>" placeholder="<%= Item.category %>" disabled="disabled">
+        </div>
+
+     
+        
+          
+        <div class="form-group">
+            <label for="location" class="text-muted"><strong>Item Location</strong></label><br>
+            <input type="text" name="location" value="<%= Item.location %>" placeholder="<%= Item.location %>" disabled="disabled">
+        </div>
+
+        <div class="form-group">
+            <label for="category"><strong>Order Status</strong></label>
+            <select class="form-control"
+             id="status"
+             name="status"
+             value="" >
+    
+            <option selected=""><%= Item.status %></option>
+              <option>Pick up</option>
+              <option>On There way</option>
+              <option>Deliverd</option>
+            </select>
+          </div>
+
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+
+
+
+    </div>
+</form>
+       
+    </div>
+</main>
+
+<script>
+
+   
+</script>

@@ -1,0 +1,53 @@
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/MyItem"><i class="fas fa-angle-double-left"></i> All Items</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Item</h2>
+            <p class="text-primary">Use the below form to Update an Item information</p>
+        </div>
+
+ <form action="/admin/Edit/<%= Item._id %>" method="POST" id="Edit">
+    <div class="new_item">
+
+        <div class="form-group">
+            <label for="name" class="text-muted"><strong>name</strong></label>
+            <input type="text" name="name" value="<%= Item.name %>" placeholder="<%= Item.name %>">
+        </div>
+
+     
+        <div class="form-group">
+            <label for="category"><strong>Select Category</strong></label>
+            <select class="form-control"
+             id="category"
+             name="category"
+             value="">
+    
+            <option selected=""><%= Item.category %></option>
+              <option>Electronic</option>
+              <option>Household Appliance</option>
+              <option>Garden</option>
+              <option>Kitchen Appliance</option>
+              <option>Tools</option>
+              <option>Others</option>
+            </select>
+          </div>
+          
+        <div class="form-group">
+            <label for="location" class="text-muted"><strong>location</strong></label>
+            <input type="text" name="location" value="<%= Item.location %>" placeholder="<%= Item.location %>">
+        </div>
+
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
