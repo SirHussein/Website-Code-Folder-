@@ -10,10 +10,6 @@ routes folder : Created by Hussein
 
 views folder : Created by Mustafa and Hussain
 
+partials folder: Copied and Modified by Hussain, Link: https://ejs.co/#features
+
 app.js: Created by Hussein
-
-To start the code
-
-1#- npm install
-
-2#- npm run dev
